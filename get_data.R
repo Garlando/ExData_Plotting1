@@ -1,0 +1,5 @@
+#download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", "data/exdata%2Fdata%2Fhousehold_power_consumption.zip")
+#unzip("data/exdata%2Fdata%2Fhousehold_power_consumption.zip", exdir = "data")
+consumption_data <- read.table("data/household_power_consumption.txt", sep = ";", header = TRUE, na.strings = "?")
+consumption_data$Date <- as.Date(consumption_data$Date, format="%d/%m/%Y")
+consumption_data <- subset(consumption_data, Date=="2007-02-01" | Date=="2007-02-02")
